@@ -1,5 +1,6 @@
 name: dumy workflow
 on:
+  workflow_dispatch:
   push:
     branches: [ main ]
     paths:
@@ -21,6 +22,7 @@ jobs:
       - name: crowdin action
         uses: crowdin/github-action@1.4.0
         with:
+          debug_mode: true
           upload_sources: true
           download_translations: true
           localization_branch_name: 'translations_branch'
